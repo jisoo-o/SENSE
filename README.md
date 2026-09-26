@@ -6,6 +6,12 @@ SENSE reconstructs speech waveforms directly from non-invasive EEG. It combines 
 
 [Project page](https://jisoo-o.github.io/website/projects/SENSE/)
 
+<p align="center">
+  <img src="assets/pipeline.png" width="100%" alt="SENSE training pipeline">
+</p>
+
+EEG is encoded into a latent representation and mapped to the prior of a VITS speech decoder. Solid arrows are the forward data flow, dashed arrows are loss supervision. The EEG decoder, phoneme predictor, and CLIP encoder are used during training only and discarded at inference.
+
 ## Installation
 
 ```sh
@@ -95,15 +101,3 @@ preprocess/           # CLIP text embedding cache generation
 ## Acknowledgements
 
 Built on [VITS](https://github.com/jaywalnut310/vits), [S4](https://github.com/state-spaces/s4), and [FESDE](https://github.com/lee-jhwn/fesde).
-
-## Citation
-
-```bibtex
-@inproceedings{park2026sense,
-  title     = {SENSE: Semantic Neural Speech Synthesis from Brain Dynamics
-               via Spatial Graph Encoding},
-  author    = {Park, Jisoo and Lee, Seonghak and Park, Hyojin and Kwon, Junseok},
-  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
-  year      = {2026}
-}
-```
