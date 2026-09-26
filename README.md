@@ -101,3 +101,7 @@ preprocess/           # CLIP text embedding cache generation
 ## Acknowledgements
 
 Built on [VITS](https://github.com/jaywalnut310/vits), [S4](https://github.com/state-spaces/s4), and [FESDE](https://github.com/lee-jhwn/fesde).
+
+## License
+
+Released under the [MIT License](LICENSE). Code derived from VITS (MIT) and S4 (Apache-2.0) remains under its original terms.
