@@ -1,0 +1,17 @@
+torch==2.4.1
+torchvision==0.19.1
+numpy==1.24.3
+scipy==1.10.1
+librosa==0.9.0
+einops==0.8.1
+matplotlib==3.7.5
+tensorboard==2.12.0
+wandb==0.16.1
+mne==1.6.1
+transformers==4.46.3
+pymcd==0.2.1
+tqdm==4.67.3
+
+# preprocessing only
+phonemizer==3.3.0
+sentence-transformers==3.2.1
