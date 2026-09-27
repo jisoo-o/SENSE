@@ -100,7 +100,7 @@ preprocess/           # CLIP text embedding cache generation
 
 ## Acknowledgements
 
-Built on [VITS](https://github.com/jaywalnut310/vits), [S4](https://github.com/state-spaces/s4), and [FESDE](https://github.com/lee-jhwn/fesde).
+This work would not have been possible without the authors who released their code openly. Our speech decoder builds on [VITS](https://github.com/jaywalnut310/vits), our temporal encoder on [S4](https://github.com/state-spaces/s4), and the overall EEG-to-speech framework follows [FESDE](https://github.com/lee-jhwn/fesde), which also served as our primary baseline. We are grateful to their authors, and to Toffolo et al. for making the [N400 corpus](https://doi.org/10.5061/dryad.6wwpzgmx4) publicly available.
 
 ## License
 
