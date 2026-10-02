@@ -12,6 +12,13 @@ transformers==4.46.3
 pymcd==0.2.1
 tqdm==4.67.3
 
+# evaluation
+openai-whisper==20231117
+jiwer==4.0.0
+bert-score==0.3.13
+pystoi==0.4.1
+pesq==0.0.4
+
 # preprocessing only
 phonemizer==3.3.0
 sentence-transformers==3.2.1

@@ -73,15 +73,40 @@ This synthesizes all three evaluation splits and writes them to `logs/<run_name>
 
 ## Pretrained checkpoints
 
-Download: *(link to be added)*
+The released weights are the model reported in the paper, trained for 200k iterations.
 
-Place the files under `logs/sense/` and run inference with `--checkpoint_idx best`.
+```sh
+mkdir -p logs/sense
+BASE=https://github.com/jisoo-o/SENSE/releases/download/v1.0
+for f in G_best.pth E_best.pth S_best.pth; do wget -P logs/sense $BASE/$f; done
+```
+
+`S_best.pth` holds the ESC projection and is required: without it the decoder runs with no
+semantic conditioning and quality drops. Optimizer state is stripped, so these weights
+support inference and evaluation but not resuming training.
+
+## Evaluation
+
+```sh
+python evaluate.py --run_name sense --checkpoint_idx best \
+    --semantic --n_runs 5 --whisper_size large-v3
+```
+
+Results are written to `logs/<run_name>/eval_results/`. Three details matter for matching
+the numbers in the paper:
+
+- **`--n_runs 5`.** The paper averages five *inference* seeds from this single checkpoint,
+  not five training runs. A single run lands close but not on the reported values.
+- **Semantic metrics use congruent trials only** (`wer_cong`, `clip_sim_cong`,
+  `bertscore_cong` in the output). Acoustic metrics use all trials.
+- **Whisper large-v3**, and BERTScore is rescaled against the baseline.
 
 ## Repository layout
 
 ```
 train.py              # training
 inference.py          # waveform synthesis from EEG
+evaluate.py           # MCD, Mel-Corr, STOI, WER, BERTScore, CLIP-Sim
 EEGModule.py          # structure-aware EEG encoder (channel gate, GNN, CNN skip, S4)
 models.py             # VITS-based speech decoder, connector, ESC projection
 modules.py            # network building blocks
